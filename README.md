@@ -31,11 +31,13 @@ This tool focuses on session-based range analysis, level clustering (“stacking
 - Level mapping computed both directions (H→L and L→H)
 - Levels are collected first, then processed for stacking and drawing
 
-### Stack Detection (Level Clustering)
-- Configurable **stack tolerance** in points
-- Sorts all levels by price, then groups levels that are within tolerance (transitive clustering)
-- Uses **unique-price counting** (filters near-duplicates using tick-size tolerance) to avoid “fake” stack strength from overlapping lines
-- Computes a stack “strength” score based on unique stacked level count (capped)
+### Level Clustering Engine
+- Collects all generated Fibonacci levels across sessions
+- Sorts levels by price
+- Groups levels within configurable tolerance using transitive clustering
+- Filters near-duplicate prices using tick-size epsilon
+- Computes stack strength based on unique level count
+- Draws visual zones only when strength threshold is met
 
 ### Visualization Controls
 - Optional drawing toggles for:
